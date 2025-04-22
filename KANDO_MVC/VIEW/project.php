@@ -648,6 +648,7 @@ $users = getAllUsers();
             <div class="logo"><i class="fas fa-tasks"></i> Kando</div>
         </a>
         <div class="nav-links">
+        <a href="dashboard.php">Dashboard</a>
             <a href="#features">Features</a>
             <a href="#workflow">How It Works</a>
             <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">
@@ -677,7 +678,9 @@ $users = getAllUsers();
                 <button class="action-btn" id="addTaskBtn">
                     <i class="fas fa-plus"></i> Add Task
                 </button>
-
+                <button class="action-btn" id="joinCallBtn">
+                    <i class="fas fa-video"></i> Join Call
+                </button>
             </div>
         </div>
 
@@ -1562,6 +1565,16 @@ $users = getAllUsers();
 
             // Initialize theme toggle
             applyTheme();
+
+            // Setup Join Call button
+            const joinCallBtn = document.getElementById('joinCallBtn');
+            if (joinCallBtn) {
+                joinCallBtn.addEventListener('click', function() {
+                    const projectId = document.getElementById('projectId').value;
+                    // Redirect to the VOIP-WEB-APP with the project ID as a parameter
+                    window.open(`../../VOIP-WEB-APP/index.html?projectId=${projectId}`, '_blank');
+                });
+            }
 
             // Setup user dropdown toggle
             const avatarImg = document.getElementById('avatarImg');
